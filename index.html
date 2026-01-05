@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de Caixa Eletrônico</title>
+
+  <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body>
+  <main class="atm">
+    <header class="atm-header">
+      <h1>Caixa Eletrônico</h1>
+    </header>
+
+    <section class="atm-saldo">
+      <span>Saldo Atual</span>
+      <strong class="saldo">R$ 1000,00</strong>
+    </section>
+
+    <section class="atm-operacoes">
+      <input type="number"
+      id="valor"
+      placeholder="Digite um valor"
+      >
+
+      <div class="atm-botoes">
+        <button id="depositar">Despositar</button>
+        <button id="sacar">Sacar</button>
+      </div>
+    </section>
+
+    <section class="atm-extrato">
+      <h2>Extrato</h2>
+      <ul id="Extrato"></ul>
+    </section>
+  </main>
+
+  <script src="src/js/script.js"></script>
+</body>
+</html>
