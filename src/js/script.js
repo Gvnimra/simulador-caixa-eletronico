@@ -36,3 +36,30 @@ btnDepositar.addEventListener('click', function(){
 
   inputValor.value = '';
 })
+
+
+//Evento de saque 
+
+btnSacar.addEventListener('click', function(){
+  
+  const valor = Number(inputValor.value);
+
+  if (valor > saldo){
+    alert('Saldo Insuficiente!');
+    inputValor.value = '';
+    return;
+  }                                           
+
+  if (valor <= 0 || isNaN(valor)) {
+    alert('Digite um valor válido para saque.');
+    return;
+  }
+
+  saldo -= valor; 
+
+  extrato.push(`Saque: - R${valor.toFixed(2)}`);
+
+  atualizarSaldo();
+
+  inputValor.value = '';
+});                                                                                                      
