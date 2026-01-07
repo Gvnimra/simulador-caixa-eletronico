@@ -11,6 +11,7 @@ const saldoElemento = document.getElementById('saldo');
 const inputValor = document.getElementById('valor');
 const btnDepositar = document.getElementById('btn-depositar');
 const btnSacar = document.getElementById('btn-sacar');
+const extratoElemento = document.getElementById('extrato');
 
 function atualizarSaldo(){
   saldoElemento.textContent = `R$ ${saldo.toFixed(2)}`;
@@ -33,6 +34,7 @@ btnDepositar.addEventListener('click', function(){
   extrato.push(`Depósito: + R$ ${valor.toFixed(2)}`);
 
   atualizarSaldo();
+  atualizarExtrato();
 
   inputValor.value = '';
 })
@@ -57,9 +59,29 @@ btnSacar.addEventListener('click', function(){
 
   saldo -= valor; 
 
-  extrato.push(`Saque: - R${valor.toFixed(2)}`);
+  extrato.push(`Saque: - R$ ${valor.toFixed(2)}`);
 
   atualizarSaldo();
+  atualizarExtrato();
 
   inputValor.value = '';
-});                                                                                                      
+}); 
+
+// Extrato 
+
+function atualizarExtrato() {
+  extratoElemento.innerHTML = '';
+
+  extrato.forEach(function(operacao) {
+    const item = document.createElement('li');
+
+    item.textContent = operacao;
+
+    if(operacao.startsWith('Depósito')){
+      item.classList.add('extrato-deposito');
+    }else if (operacao.startsWith('Saque'))
+      item.classList.add('extrato-saque');
+
+    extratoElemento.appendChild(item);
+  })                                                                                                                                                              
+}

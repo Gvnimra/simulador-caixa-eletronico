@@ -115,9 +115,18 @@ body {
   font-size: 14px;
   max-height: 120px;
   overflow-y: auto;
+  font-family: monospace;
 }
 
 #extrato li {
   padding: 4px 0;
   border-bottom: 1px solid #ddd;
+}
+
+.extrato-deposito {
+  color: #2e7d32;
+}
+
+.extrato-saque {
+  color: #c62828;
 }
